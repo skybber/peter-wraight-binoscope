@@ -57,7 +57,7 @@ Not modelled: the opening in the middle board for B's beam (say so).
 
 A printed ring in the cross-section plane (axis parallel to x): **A's ring hangs from A's top board** (hub below it, the reflected beam passes through the ring); **B's ring stands on B's bottom board** (hub above it). The wall can be selected per tube (top, bottom, left, right).
 
-- Wall → axis distance L (H/2 = 78.5). Base pad 3 mm, hub radius r_h 16, ring centreline radius (L − 3 − r_h)/2 ≈ 29.75. Ring wall (radial) 3 mm (estimate). **Ring depth along x: A 30 mm, B twice that (60 mm)**; a side view suggests about 17 / 40 mm, so keep them editable. Material from the filament list, solid.
+- Wall → axis distance L (H/2 = 78.5). Base pad 3 mm, hub radius r_h 16, ring centreline radius (L − 3 − r_h)/2 ≈ 29.75. Ring wall (radial) 3 mm (estimate). **Ring depth along x: A 20 mm, B 40 mm** (B twice A, because its longer light path makes it more critical). Material from the filament list, solid.
 - FE as a **short cylindrical shell**: 24 nodes round × (round(depth/10) + 1) circles, circumferential and axial strips (the strip section above with t = ring wall, radial reference vector) plus X shear bars per cell.
 - The shell nodes within ± the **fused arc** (30°) of the top are rigidly joined to a pad node (1 mm towards the wall, so it never coincides with a shell node). The pad joins the wall node through a 2 mm element equivalent to a rotational spring k_b. Default k_b: A 2·10⁶ N·mm/rad (glued); **B 5·10⁵** (split, interlocking base); 0 = rigid. Label it "Holder base joint" and explain it in plain words: 1 N·m tilts the joint by 57.3/(k_b/1000) degrees.
 - The shell nodes within ± the fused arc of the bottom are rigidly joined to the hub node on the optical axis, plus 3 rigid helper nodes for the rigid-body fit.
@@ -123,14 +123,14 @@ Also check numerical robustness (penalty ×100, rigid links ÷10: results within
 
 ## 11. Presets
 
-1. **Peter's original 150 mm F5:** everything above, with: f 750, D 150, M 150, collimation at 45°; W 207, H 157, e_y 46, Δx_s 39; dP 35, sf_A 180, beyond 100, B offset 170; masses 1.1 / 0.08 / 0.5 kg per tube; PETG with solid share 0.6; rings 30/60 × 3 mm, hub 16, fused arc ±30°, k_b 2e6 / 5e5; tilt 14.5°, axis 50 mm above the middle; bearing at the centre of mass.
-2. **200 mm F5 scaled 1:1** (same profiles and plate thicknesses): f 1000, D 200; W, H, e_y, Δx_s, r_c and the ring dimensions × 4/3 (276, 209, 61, 52, 73; rings 40/80 × 4, hub 21); sf_A 205, beyond 120, B offset 230; masses 2.3 / 0.12 / 0.6 kg; axis 67 mm above the middle.
+1. **Peter's original 150 mm F5:** everything above, with: f 750, D 150, M 150, collimation at 45°; W 207, H 157, e_y 46, Δx_s 39; dP 35, sf_A 180, beyond 100, B offset 170; masses 1.1 / 0.08 / 0.5 kg per tube; PETG with solid share 0.6; rings 20/40 × 3 mm, hub 16, fused arc ±30°, k_b 2e6 / 5e5; tilt 14.5°, axis 50 mm above the middle; bearing at the centre of mass.
+2. **200 mm F5 scaled 1:1** (same profiles and plate thicknesses): f 1000, D 200; W, H, e_y, Δx_s, r_c and the ring dimensions × 4/3 (276, 209, 61, 52, 73; rings 27/53 × 4, hub 21); sf_A 205, beyond 120, B offset 230; masses 2.3 / 0.12 / 0.6 kg; axis 67 mm above the middle.
 3. **200 mm improved:** as 2, but both rings hang from the wall above their tube (B from the middle board) with rigid bases.
 
 ## 12. Facts from Peter and the user to respect
 
 - 20 % infill; the whole unit with light covers weighs about 5 kg (the model is heavier, so the masses are estimates).
 - The side, top and bottom plates holding the bearing are glued firmly to the frame, and so is the plate holding the eyepiece holder. The front end plates are glued and screwed. The plate holding the lower secondary is glued to the frame.
-- The user observes a real vertical A − B about 10× smaller than the model's roughly 300′. The ring holder (about 60 % of it) and its board are the main suspects; mark their dimensions as estimates and show the contributions table.
+- The user observes a real vertical A − B about 10× smaller than the model's (about 500′ with the 20/40 mm rings). The ring holder and its board are the main suspects; mark their dimensions as estimates and show the contributions table.
 
 Mark all unmeasured dimensions as editable estimates. When the model is built and validated, report the key results of the three presets side by side.
